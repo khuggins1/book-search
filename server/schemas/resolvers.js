@@ -62,10 +62,13 @@ return { token, user};
           { $pull: { savedBooks: { bookId: bookId}}},
           { new: true, runValidators: true}
         );
+        return updatedUser;
+      }
+
         throw new AuthenticationError('Must be logged in');
       }
     }
-    }
-  };
+    };
+
   
   module.exports = resolvers;
